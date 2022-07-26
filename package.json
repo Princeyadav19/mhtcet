@@ -1,0 +1,22 @@
+{
+  "name": "mhtcet",
+  "version": "1.0.0",
+  "description": "nodemon server.js",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server"
+  },
+  "keywords": [],
+  "author": "harsh yadav",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-mongodb-session": "^3.1.1",
+    "express": "^4.18.1",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.4.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
