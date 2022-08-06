@@ -1,0 +1,76 @@
+<%- include("./partials/header")%>
+<%if(data!=undefined){%>
+  <% num = 1; %>
+    <div class="col-lg-11 d-flex justify-content-end ms-lg-5 mt-lg-3 position sticky-lg-top">
+            <p id="timer" class="text-dark bg-info border " ></p>
+    </div>
+    <form action="/submit_mcq" method="post" id="stu_solution">
+      
+    <input type="text" value="<%=coustom.Subject%>" name="subject_result" style="visibility:hidden">
+    <input type="text" value="<%=coustom.no_of_ques%>" name="no_of_ques_result" style="visibility:hidden">
+
+  <%data.forEach((item)=>{%>
+
+    <div class="conatiner-fluid mt-sm-3 mt-lg-3 mx-sm-5 px-sm-5 ">
+      <div class="p-3 bg-info bg-opacity-10 border border-info border-start-3 rounded-end row mt-lg-3mx-sm-5 px-lg-5 align">
+          <h5>Q.<%=num%> <%=item.question%></h5>
+      </div>
+      
+      <div class="row mt-lg-3d-flex justify-content-center mt-lg-4">
+        <div class="col-lg-5 form-check">
+          <input class="form-check-input" type="radio" value="<%=item.op1%>" name="<%=item.id%>" id="flexRadioDefault1">
+          <label class="fw-bold form-check-label"  for="flexRadioDefault1">
+            <%=item.op1%>
+          </label>
+        </div>
+      
+        <div class=" col-lg-5 form-check">
+          <input class="form-check-input" type="radio" value="<%=item.op2%>" name="<%=item.id%>" id="flexRadioDefault1">
+          <label class="fw-bold form-check-label"  for="flexRadioDefault1">
+            <%=item.op2%>
+          </label>
+        </div>
+      </div>
+      
+      <div class="row mt-lg-3 d-flex justify-content-center">
+        <div class="col-lg-5 form-check">
+          <input class="form-check-input" type="radio" value="<%=item.op3%>" name="<%=item.id%>" id="flexRadioDefault1">
+          <label class=" fw-bold form-check-label"  for="flexRadioDefault1">
+            <%=item.op3%>
+          </label>
+        </div>
+      
+        <div class="col-lg-5 form-check">
+          <input class="form-check-input" type="radio" value="<%=item.op4%>"  name="<%=item.id%>" id="flexRadioDefault1">
+          <label class="fw-bold form-check-label"for="flexRadioDefault1">
+            <%=item.op4%>
+          </label>
+        </div>
+      </div>
+    </div>
+    <%num++%>
+  <%})%>
+  <div class="d-flex justify-content-between">
+  <button type="submit" class="btn btn-primary me-lg-3 mt-lg-3 mx-lg-5">Submit</button>
+  <a class="btn btn-success me-lg-3 mt-lg-3 mx-lg-5" role="button" aria-disabled="true" href="/stu_questions">Next</a></div>
+</form>
+  <%}%>
+<script>
+  const date = new Date().getTime();
+  const sec = date+("<%=coustom.timer%>"*60*1000);
+
+var x = setInterval(function(){
+    const fir = new Date().getTime();
+    var distance = sec-fir;
+
+    document.getElementById("timer").innerHTML = Math.floor(distance/(1000*60))+" : "+ Math.floor((distance%(1000*60))/1000);
+
+    if (distance < 0) {
+        clearInterval(x);
+        alert("your time is up")
+        document.getElementById("stu_solution").submit();
+      }
+},1000)
+</script>
+
+<%- include("./partials/footer")%>

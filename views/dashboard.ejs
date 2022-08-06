@@ -1,0 +1,93 @@
+<%- include("./partials/header")%>
+    <%- include("./partials/logged_navbar")%>
+<style>
+
+</style>
+<div class="container mt-lg-5 mx-lg-2">
+<div class="row">
+
+    <!-- //code for customise section -->
+    <div class="col-lg-4 mt-lg-3 ">
+        <div class="container border">
+            <form action="/stu_questions" method="post">
+
+                <div class="row  d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h4>Customise Test</h4>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 ">
+                        <label class="text-muted" for="subject">Subject:</label>
+                        <select name="Subject" class="btn btn-dark text-start  mt-lg-2" id="Subject"
+                            required>
+                            <option value="">Select..</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Maths">Maths</option>
+                            <option value="Biology">Biology</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mt-lg-3">
+                    <div class="col-lg-6 ">
+                        <label class="text-muted" for="questions">Number Of Question:</label>
+                        <select name="no_of_ques" class="btn btn-secondary text-start mt-lg-2"
+                            id="no_of_ques" required>
+                            <option value="0">Select..</option>
+                            <option value="3">15</option>
+                            <option value="30">30</option>
+                            <option value="45">45</option>
+                        </select>
+                    </div>
+                    <!-- timer -->
+                    <div class="col-lg-6 ">
+                        <label class="text-muted" for="timer">Select a time:</label>
+                        <select name="timer" class="btn btn-secondary text-start mt-lg-2" id="timer"
+                            required>
+                            <%for(i=0;i<=60;i++){%>
+                                <%if(i<=9){%>
+                                    <option value="<%=i%>">
+                                        0<%=i%>: Min
+                                    </option>
+                                    <%}else{%>
+                                        <option value="<%=i%>">
+                                            <%=i%>: Min
+                                        </option>
+                                    <%}%>
+                                        <%}%>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-lg-3">
+                    <div class="col-lg-12 d-flex justify-content-between">
+                        <button class="btn btn-success " type="submit">Submit</button>
+                        <button class="btn btn-danger " type="reset">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- code end for coustomise section -->
+
+
+
+    <div class="col-lg-6 mt-lg-3">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk
+                    of the card's content.</p>
+                <a href="#" class="card-link">Card link</a>
+                <a href="/customise" class="card-link">Customise Test</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- <a class="btn btn-success me-lg-3" role="button" aria-disabled="true" href="/stu_questions">stu</a> -->
+
+        <%- include("./partials/footer")%>

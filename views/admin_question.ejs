@@ -1,0 +1,57 @@
+<%- include("./partials/header")%>
+    <form method="post" action="/add_question">
+        <div class="form-group mt-lg-3 mx-lg-5">
+            <%if(add_quesn_msg!=null){%>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong> <%=add_quesn_msg%></strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>
+            <%}%>
+            <label for="radiobutton">Set Subject:</label><br>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Subject" value="physics" id="physics" checked>
+                <label class="form-check-label" for="priority1">physics</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Subject" value="chemistry" id="chemistry">
+                <label class="form-check-label" for="priority2">chemistry</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Subject" value="maths" id="maths" checked>
+                <label class="form-check-label" for="priority3">maths</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="Subject" value="biology" id="biology" >
+                <label class="form-check-label" for="priority4">biology</label>
+            </div>
+            <label for="exampleInputEmail1">Enter Question</label>
+            <input type="text" class="form-control mt-lg-3" name="question" id="exampleInput"
+                placeholder="Enter Questions....">
+        </div>
+        <div class="form-row mt-lg-3 mx-lg-5">
+            <div class="col-lg-4 mt-lg-3 mx-lg-5 ">
+                <input type="text" class="form-control" name="op1" placeholder="option 1">
+            </div>
+
+            <div class="col-lg-4 mt-lg-3 mx-lg-5">
+                <input type="text" class="form-control" name="op2" placeholder="option 2">
+            </div>
+
+            <div class="col-lg-4 mt-lg-3 mx-lg-5">
+                <input type="text" class="form-control" name="op3" placeholder="option 3">
+            </div>
+
+            <div class="col-lg-4 mt-lg-3 mx-lg-5">
+                <input type="text" class="form-control" name="op4" placeholder="option 4">
+            </div>
+
+            <div class="col-lg-4 mt-lg-3 mx-lg-5">
+                <input type="text" class="form-control" name="ans" placeholder="answer">
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary mt-lg-3 mx-lg-5">Submit</button>
+        <a class="btn btn-success mt-lg-3 mx-lg-5" role="button" aria-disabled="true" href="/dashboard">Back</a>
+
+    </form>
+    <%- include("./partials/footer")%>

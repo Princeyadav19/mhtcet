@@ -1,0 +1,12 @@
+<%- include("./partials/header")%>
+   
+    <div class="conatiner">
+      <div class="row">
+        <h4><%=data.marks%> Out of <%=data.no_of_ques_result%></h4>
+        <p><%=data.subject_result%></p>
+        <p><%=data.no_of_ques_result-data.marks%></p>
+      </div>
+      <a class="btn btn-warning" role="button" aria-disabled="true" href="/dashboard">dashboard</a>
+
+    </div>
+    <%- include("./partials/footer")%>
