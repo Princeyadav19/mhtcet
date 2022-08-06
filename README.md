@@ -1,4 +1,4 @@
 # mhtcet
 
 website for MHT-CET geeks
-with MERN stack.
+with Node, mongo, Express and Ejs stack.
